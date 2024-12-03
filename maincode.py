@@ -13,7 +13,7 @@ ev3 = EV3Brick()
 # Motor Einstellung
 right_motor = Motor(Port.A)
 left_motor = Motor(Port.D)
-#servo = Servo.Motor(Port.A)
+# servo = Servo.Motor(Port.A)
 
 # ColorSensor Einstellung
 sensor_right = ColorSensor(Port.S2)
@@ -28,25 +28,24 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=145)
 
 
 def move_links():
-    robot.drive(60, -30)
+    left_motor.run(500)
+    right_motor.run(-150)
     wait(100)
-
 
 
 def move_gerade():
-    robot.drive(120, 0)
+    robot.drive(700, 0)
     wait(200)
 
 
-
 def move_rechts():
-    robot.drive(60, 30)
+    right_motor.run(500)
+    left_motor.run(-150)
     wait(100)
 
 
-
 def wenden():
-    robot.turn(140)
+    robot.turn(500)
 
 
 def drive_forever():
@@ -97,11 +96,10 @@ def linienauswertung():
         "center": is_on_black_line(sensor_values["center"]),
         "left": is_on_black_line(sensor_values["left"])
     }
-    
+
     # Ergebnisse ausgeben
     print("Sensorwerte:", sensor_values)
     print("Linienstatus (True = auf der Linie, False = nicht auf der Linie):", on_line_status)
-
 
 
 def fahren():
@@ -130,7 +128,7 @@ def fahren():
                 if detect_object == True:
                     wenden()
                 else:
-                    wenden() #es ist egal ob eine wand vorhanden ist oder nicht
+                    wenden()  # es ist egal ob eine wand vorhanden ist oder nicht
             else:
                 continue
         else:
@@ -140,9 +138,10 @@ def fahren():
 def warten():
     while detect_object == False:
         wait(1000)
-    
+
 
 if __name__ == "__main__":
     while True:
         fahren()
+    else:
         warten()

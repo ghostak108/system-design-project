@@ -6,23 +6,27 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 
 
-#Create your objects here.
+# Create your objects here.
 ev3 = EV3Brick()
 
-#Motor Einstellung
+# Motor Einstellung
 right_motor = Motor(Port.A)
 left_motor = Motor(Port.D)
 
-#ColorSensor Einstellung
+# ColorSensor Einstellung
 sensor_right = ColorSensor(Port.S4)
 sensor_center = ColorSensor(Port.S2)
 sensor_left = ColorSensor(Port.S1)
 
-#UltraschallSensor Einstellung
+# UltraschallSensor Einstellung
 ultrasonic_sensor = UltrasonicSensor(Port.S3)
 
-#Robotergestell
+# Robotergestell
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=145)
+
+
+def move_gerade():
+    ...
 
 
 def detect_object():
