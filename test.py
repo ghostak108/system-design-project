@@ -120,9 +120,14 @@ def warten():
 
 if __name__ == "__main__":
     while True:
+<<<<<<< HEAD:test.py
         move_gerade()
         move_rechts()
         move_gerade()
         move_links()
     else:
         ...
+=======
+        fahren()
+        warten()
+>>>>>>> 9d28aff88f578ce161ede4be5ac7c06024c7c13e:gpt.py
